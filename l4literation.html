@@ -174,6 +174,136 @@
 
                 document.write`<h3> Find  Method</h3>`;
 
+                const users = [
+                    {name:"kyaw kyaw",age:20},
+                    {name:"Noe Now",age:21},
+                    {name:"oo oo",age:22},
+                    {name:"kyaw Min",age:23},
+                    {name:"Linn Min",age:24},
+                ];
+                
+                // console.log(users);
+
+                const filterresult = users.filter((user)=>{
+                    return user.name === "oo oo";
+                });
+
+                console.log(filterresult); //[{…}]
+
+                const findresult = users.find((user)=>{
+                    return user.name === "oo oo";
+                });
+
+                console.log(findresult); //name: 'oo oo', age: 22}
+
+
+                const filterbyagee = users.filter((user)=>{
+                    return user.age > 22;
+                });
+
+                console.log(filterbyagee); //(2) [{…}, {…}]
+
+                const findbyagee = users.find((user)=>{
+                    return user.age > 22;
+                });
+
+                console.log(findbyagee); //{name: 'kyaw Min', age: 23}
+
+                const posts = [
+                    {id:1,title:"New Post One"},
+                    {id:2,title:"New Post two"},
+                    {id:3,title:"New Post three"},
+                    {id:4,title:"New Post four"}
+                ];
+
+                const comment = {post_id:1,message:"nice post one",user_id:10};
+
+                function postcomment(posts,comment){
+                    return posts.find((post)=>{
+                        return post.id === comment.post_id;
+                    });
+                };
+
+                console.log(postcomment(posts,comment)); //{id: 1, title: 'New Post One'}
+
+                document.write`<h3> Reduce  Method</h3>`;
+
+                // mainarrays.reduce(function(pre value, curr val,curr index,array){},initial value or additional value);
+
+                const amounts = [10,20,30];
+
+                const result = amounts.reduce((total,curr)=>{
+                    total += curr;
+                    return total;
+                });
+
+                console.log(result); //60
+ 
+                const resultadditional = amounts.reduce((total,curr)=>{
+                    total += curr;
+                    return total;
+                },0);
+
+                console.log(resultadditional); //60
+
+                const resultadditional2 = amounts.reduce((total,curr)=>{
+                    total += curr;
+                    return total;
+                },10);
+
+                console.log(resultadditional2); //70
+
+
+                const sumresult = amounts.reduce((total,curr)=>(total += curr),0).toFixed(2);
+                console.log(sumresult); //60.00
+                console.log(typeof sumresult); //string
+
+                const numbers = [10,200,400,300,50,40,30,500,0];
+
+                const getmax = numbers.reduce((prev,curr)=>{
+                    if(curr > prev){
+                        return curr;
+                    };
+                    return prev;
+                },0);
+
+                console.log(getmax); //500
+
+                // return  prev  curr
+                // 10      10      10
+                // 10      10      200
+                // 200     200      30
+                // 200 ..............
+                // 500
+
+                const getmin = numbers.reduce((prev,curr)=>{
+                    if(curr < prev){
+                        return curr;
+                    };
+                    return prev;
+                },0);
+
+                console.log(getmin); //0
+
+
+                // some () vs every() return boolean
+
+                const boys = ["aung aung",'min myint','soe naung'];
+
+                const checklength = boys.every(boy=>{
+                    return boy.length === 9;
+                })
+
+                console.log(checklength); //true
+
+                let firstletterwitha = boys.every(boy=>boy[0] === 'a');
+                console.log(firstletterwitha); //false
+
+                let lastletterwithg = boys.every(boy=>boy[boy.length-1] === 'g');
+                console.log(lastletterwithg); //fale
+
+                let fstletterwitha = boys.some(boy=>boy[0] === 'a');
+                console.log(fstletterwitha); //true
 
             </script>
             
