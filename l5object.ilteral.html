@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <title>Object Literal</title>
+</head>
+<body>
+    
+    <script type="text/javascript">
+
+        // =>Object 
+
+        let person1 = {
+            name:"Aung Aung",
+            age:20,
+            gender:"male"
+        };
+
+        console.log(person1);
+        console.log(person1.name)
+        console.log(person1.age);
+        // console.log(person1[gender]);
+
+        person1.city = "Mawlamyine";
+        console.log(person1);
+
+
+        let person2 = person1;
+        console.log(person2); 
+
+        person2.age = 30;
+        console.log(person2);
+        console.log(person1); //{name: 'Aung Aung', age: 30, gender: 'male', city: 'Mawlamyine'}
+
+        let person3 = Object.freeze(person1);
+
+        person3.phone = "0912345678"; //added
+        person3.age = 40; //updated
+        console.log(person3);  //name: 'Aung Aung', age: 30, gender: 'male', city: 'Mawlamyine'}
+        console.log(person2); //{name: 'Aung Aung', age: 30, gender: 'male', city: 'Mawlamyine'}
+        console.log(person2);
+
+        const employee = {
+            name:"yu yu",
+            age:20,
+            position:"Graphic Designer",
+            salary:700000
+        }
+
+        console.log(employee.name);
+        console.log(employee.position);
+
+        const {name,age,position,salary} = employee;
+        console.log(name);
+        console.log(age);
+        console.log(position);
+        console.log(salary);
+
+        const employers = {
+            fullname:"Thuzar Aung",
+            company:"Karak Co.,Ltd",
+            address:"Yangon",
+            posts:{
+                officestaff:{
+                    gender:"Female",
+                    salary:600000
+                },
+                driver:{
+                    gender:"Male",
+                    salary:400000
+                }
+            },
+            links:{
+                social:{
+                    gmail:"hr@karak.com",
+                    facebook:"https://facebook.com/karakcompany"
+                }
+            }
+        };
+
+        const {fullname,company,address,posts} = employers;
+
+        console.log(fullname);
+        console.log(company); //Karak Co.,Ltd
+        console.log(address); //Yangon
+        console.log(posts.officestaff.gender,posts["officestaff"]['salary']); //Female 600000
+        console.log(posts.driver.gender,posts.driver["salary"]); //Male 400000
+
+        const {gmail:email,facebook : media} = employers.links.social;
+        // console.log(gmail); //hr@karak.com
+        // console.log(facebook); //https://facebook.com/karakcompany
+        console.log(email); //hr@karak.com
+        console.log(media); //https://facebook.com/karakcompany
+
+
+        // => default value 
+
+        const configs = {
+            width: 300,
+            color:"STEELBLUE"
+        }
+
+        const {width=400,color="Black",height=500} = configs
+
+        console.log(width); //300
+        console.log(color); //STEELBLUE
+        console.log(height); //500 
+
+        //=> Nested Destructring
+
+
+        const student = {
+            name:"hii",
+            address:{
+                city:"bago",
+                country:"Myanmar"
+            }
+        };
+
+        const {address:{city,country}} = student
+
+        console.log(city);
+        console.log(country);
+    </script>
+
+
+</body>
+</html>

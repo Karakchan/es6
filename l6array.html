@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>Array</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        // Array 
+
+        let male = "aung aung";
+        let female = "su su";
+        console.log(male,female);
+
+        // => Array Destructuring 
+        const [person1,person2] = [female,male];
+        console.log(person1); //su su
+        console.log(person2); // aung aung
+
+
+        const mynumbers = [100,200,300];
+        console.log(mynumbers[0]);
+        console.log(mynumbers[1]);
+        console.log(mynumbers[2]);
+        console.log(mynumbers[3]); //undefined
+
+        const [val1,val2,val3] = mynumbers;
+        console.log(val1);
+        console.log(val2);
+        console.log(val3);
+        // console.log(val4); // undefined
+
+        // => skipping Elements 
+        const numbers = [10,20,30,40,50];
+        const [num1,,,,num5] = numbers;
+
+        console.log(num1);
+        console.log(num5);
+
+        //  => Default Value 
+        const arrnumbers = [100];
+
+        let [a=1,b=200,c=300] = arrnumbers;
+        console.log(a); //100
+        console.log(b); //200
+        console.log(c); //300
+
+        //=>Neted Destructuring
+
+        const yournums = [10,[20,30,40],50];
+
+        const [first,[second,third,fourth],fifth] = yournums;
+
+        console.log(first); //10
+        console.log(second);//20
+        console.log(third);//30
+        console.log(fourth);//40
+        console.log(fifth);//50
+
+        // swap 
+
+        let women = "nu nu";
+        let men = "aung thu";
+
+        [women,men] = [men,women];
+        console.log(women,men); // aung thu nu nu
+
+    </script>
+    
+</body>
+</html>
