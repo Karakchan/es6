@@ -65,6 +65,44 @@
         [women,men] = [men,women];
         console.log(women,men); // aung thu nu nu
 
+        const colors = ["red","blue","yellow","black","white"];
+        console.log(colors[0]);
+        console.log(colors[3]);
+
+        for(const color of colors){
+            console.log(color);
+        }
+
+        const arrs = colors.entries();
+        console.log(arrs); //Array Iterator()
+
+        // console.log(arrs.next()); //{value: Array(2), done: false}
+        // console.log(arrs.next());
+        // console.log(arrs.next());
+        // console.log(arrs.next());
+        // console.log(arrs.next()); //{value: Array(2), done: false}
+        // console.log(arrs.next()); //{value: undefined, done: true}
+
+        // console.log(arrs.next().value[1]);
+        // console.log(arrs.next().value[1]);
+        // console.log(arrs.next().value[1]);
+        // console.log(arrs.next().value[1]);
+        // console.log(arrs.next().value[1]);
+
+        for(const color of arrs){
+            console.log(`Index is ${color[0]} and value is ${color[1]}`);
+            
+        }
+        
+        for(const [idx,color] of arrs){
+            console.log(`Index is ${idx} and value is ${color}`);
+        }
+
+
+        
+
+
+
     </script>
     
 </body>

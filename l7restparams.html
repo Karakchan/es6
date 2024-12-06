@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <title>Rest Parameter / Rest Operator </title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+    //   Rest Parameter (...) 
+    // Note :: can't set first and between 
+
+    function city(val){
+        return val;
+    }
+
+    console.log(city()); //undefined
+    console.log(city('yangon')); //yangon
+    console.log(city('yangon','mandalay','Bago')); //yangon
+
+    function citys(...vals){
+        return vals;
+    }
+
+    console.log(citys()); //[]
+    console.log(citys('yangon')); // yangon
+    console.log(citys('yangon','mandalay','Bago'));//(3) ['yangon', 'mandalay', 'Bago']
+
+    
+    function place(location,...vals){
+        // return location,
+        return vals;
+    }
+
+    console.log(place());
+    console.log(place('chaungtar'));
+    console.log(place('chaungtar','Ngapali'));
+
+    function getinfo(first,last,...cities){
+        console.log("This is first name = ",first);
+        console.log("This is Last name = ",last);
+        console.log("This is cities = ",cities.join(', '));
+    }
+
+    getinfo();
+    getinfo('aung','kyaw','yangon');
+    getinfo('su','yee','yangon','myanmar','asia');
+
+
+    function sumresult(...nums){
+        let total = 0 ;
+
+        for(const num of nums){
+            total += num;
+        }
+
+        return total;
+    }
+
+    console.log(sumresult(10,20,30,40,50)); //150
+
+    function totalreult(...nums){
+        let total = nums.reduce((total,curr)=>total+curr,0) ;
+
+        return total;
+    }
+
+    console.log(totalreult(10,20,30,40,50)); //150
+
+    
+
+    </script>
+    
+</body>
+</html>
