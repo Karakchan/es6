@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+    <title>Spread operator </title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        // => Spread Operator
+
+        let val;
+        val = Math.max(1,22,34,55,66,77,34,2,-2,3,-55);
+        console.log(val);  //77
+
+        val = Math.min(1,22,34,55,66,77,34,2,-2,3,-55);
+        console.log(val); //-55
+
+        val = [1,22,34,55,66,77,34,2,-2,3,-55];
+        // console.log(Math.max(val)); //NaN
+        // console.log(Math.min(val)); //NaN
+
+        console.log(val); //(11) [1, 22, 34, 55, 66, 77, 34, 2, -2, 3, -55]
+        console.log(...val);  //1 22 34 55 66 77 34 2 -2 3 -55
+        console.log(Math.max(...val)); //77
+        console.log(Math.min(...val)); //55
+
+        function sumresult(num1,num2,num3){
+            return num1+num2+num3;
+        }
+
+        console.log(sumresult(1,2,3)); //6
+        console.log(sumresult([1,2,3])); //1,2,3undefinedundefined
+
+        const number = [10,20,30];
+        console.log(sumresult(...number)); //60
+
+        // =>apply(null,array)
+        console.log(sumresult.apply(null,number)); //60
+
+        console.log(Math.max.apply(null,number)); //30
+        console.log(Math.min.apply(null,number)); //10
+
+        function getnames(name1,name2,name3){
+            console.log("Name1 is",name1);
+            console.log("Name2 is",name2);
+            console.log("Name3 is",name3);
+
+        }
+
+        getnames("su su","nu nu","yu yu"); //Name1 is su su  Name2 is nu nu Name3 is yu yu
+        getnames(["su su","yu yu","nu nu"]); //Name1 is (3) ['su su', 'yu yu', 'nu nu']Name2 is undefined Name3 is undefined
+        getnames(...["su su","yu yu","nu nu"]); //Name1 is su su  Name2 is nu nu Name3 is yu yu
+        getnames.apply(null,["su su","yu yu","nu nu"]); //Name1 is su su  Name2 is nu nu Name3 is yu yu
+
+
+        const color = "Red";
+        console.log(color); //Red
+        console.log(...color); //R e d
+
+        getnames(color);
+        getnames(...color);  //name1 is Red Name2 is undefined Name3 is undefined
+
+        console.log(...[color]); ///['Red']
+
+        console.log([...color]); // ["R","e","d"]
+        console.log(color.split('')); //["R","e","d"]
+
+        console.log(...["Red"]); //Red
+        console.log([..."Red"]); //["R","e","d"]
+
+        console.log(...["Red","Blue","Green"]) // Red Blue Green
+        console.log([..."Red","Blue","Green"]) // (5) ['R', 'e', 'd', 'Blue', 'Green']
+        console.log([..."Red",..."Blue",..."Green"])  //['R', 'e', 'd', 'B', 'l', 'u', 'e', 'G', 'r', 'e', 'e', 'n']
+        
+        console.log(...[123,3445,666,777]); //123 3445 666 777
+        console.log([..."123",..."3445",666,777]); //['1', '2', '3', '3', '4', '4', '5', 666, 777]
+        console.log([...[123],...[3445],666,777]); // [123, 3445, 666, 777]
+        console.log([[..."123"],[..."3445"],666,777]) //[Array(3), Array(4), 666, 777]
+
+        // => Spread in Array 
+        const phones = ['vivo','redmi','iphone'];
+        const cars = ['suzuki','toyota','mazda'];
+        const computers = ['acer','dell','aoc','hp'];
+
+        let myowns = [phones,cars,computers];
+        console.log(myowns);// (3) [Array(3), Array(3), Array(4)]
+
+        myowns = [...phones,...cars,...computers];
+        console.log(myowns);//'vivo', 'redmi', 'iphone', 'suzuki', 'toyota', 'mazda', 'acer', 'dell', 'aoc', 'hp']
+
+        // => Spread in Object 
+        const infos = {
+            name: "Honey Nway Oo",
+            gender:"Female",
+            age:25
+        };
+
+        const contacts = {
+            phones:"0933394",
+            city:"Yangon",
+            hascar:true
+        };
+
+        const profiles = {
+           nickname:"Honey",
+           age:30
+        };
+
+        let bio = {infos,contacts,profiles};
+        console.log(bio); //infos: {…}, contacts: {…}, profiles: {…}}
+
+        bio = {...infos,...contacts};
+        console.log(bio); //{name: 'Honey Nway Oo', gender: 'Female', age: 25, phones: '0933394', city: 'Yangon', …}
+
+        bio = {...profiles,...contacts,...infos};
+        console.log(bio);  //{nickname: 'Honey', age: 25, phones: '0933394', city: 'Yangon', hascar: true, …}
+    </script>
+    
+</body>
+</html>
