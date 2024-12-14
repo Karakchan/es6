@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>Argument Object </title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        // Argument Object 
+
+            // Note: argument object can't set in arrow function
+
+        function getname(first,last){
+            console.log(first,last);
+        }
+
+        getname("Hla","Yamin");
+
+        function getfullname(first,middle,last){
+            console.log(first,middle,last);
+
+            console.log(arguments);
+            console.log(typeof arguments);
+
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+
+        }
+
+        getfullname("Hla","Yamin","Oo")
+
+        function getcountry(){
+            console.log(arguments);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+
+        }
+
+        getcountry(); //Arguments [callee: ƒ, Symbol(Symbol.iterator): ƒ]
+        // getcountry("Thailand","Indonesia"); //Arguments(2) ['Thailand', 'Indonesia', callee: ƒ, Symbol(Symbol.iterator): ƒ]
+
+        // => Error 
+        // const getcity = ()=>{
+        //     console.log(arguments); // Uncaught ReferenceError: arguments is not defined
+        // };
+        // getcity("bago");
+        
+    </script>
+    
+</body>
+</html>
