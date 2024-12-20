@@ -63,6 +63,28 @@
         // };
         // getcity("bago");
 
+        function calculate(){
+            myarrs = [...arguments];
+            //return myarrs
+
+            const sumvalue = myarrs.reduce((total,curr)=>(total += curr), 0);
+            return sumvalue;
+        }
+
+        console.log(calculate(19,29,29)); //77
+        console.log(calculate(...[10,20,30])); //60
+
+
+        function colorlists(){
+            const colors = Array.from(arguments);
+
+            return colors.map((color,index)=>{
+                return `${++index} is ${color} color.`;
+            });
+        }
+
+        console.log(colorlists("red","green","blue"));
+
         
     </script>
     
