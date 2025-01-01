@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<head>
+    <title>this keyword </title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        //this keyword (Static scope, Lexical scope)
+        console.log(this);
+
+        //regular tranditional scope
+        function morning(){
+            console.log("good morning"); //good morning
+            console.log(this); //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+        }
+
+        morning();
+
+        const afternoon = function(){
+            console.log("good afternoon");
+            console.log(this); //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+        }
+        
+        afternoon();
+
+       const evening = ()=>{
+        console.log("Good Evening"); //good evening
+        console.log(this); //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+       }
+
+       evening();
+
+    //    setTimeout(function(){
+    //     console.log("Good Night");// Good night
+    //     console.log(this); //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+    //    },3000)
+
+    //    setTimeout(()=>{
+    //     console.log("good Bye");
+    //     console.log(this) //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+    //    },4000)
+
+       function outerval(){
+            let outside = "outside value";
+
+            function inside(){ 
+                console.log(outside); //outside value
+                console.log(this);  //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+                console.log(this.outside); //undefined
+            }
+
+            const inner = ()=>{
+                console.log(outside); //outside value
+                console.log(this);  //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+                console.log(this.outside); //undefined
+            }
+            inside();
+            inner();
+       }
+
+       outerval();    
+
+        // ----------------------------------------------------------------------------------------------------
+
+       // => For Object
+
+    //    Name Less Regular Function = this Work    NRW
+    //    Name Less Arrow Function = this Not Work  NAN
+ 
+    //    Callback Regular Function = this Not Work CRN
+    //    Callback Arrow Function = this Work       CAW
+
+
+    
+    const obj1 = {
+        name:"Min Kyaw Moe Oo",
+        age:20,
+        city:"Mawlamyine",
+
+        myfun1:function(){
+            console.log(this)
+        },
+
+        myfun2:()=>{
+            console.log(this)
+        }
+
+    }
+
+
+    obj1.myfun1(); //{name: 'Min Kyaw Moe Oo', age: 20, city: 'Mawlamyine', myfun1: ƒ, myfun2: ƒ}
+    obj1.myfun2(); //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+
+    const obj3 = {
+
+        name:"Hla YaMin Oo",
+        age:20,
+        city:"Chaungzone",
+
+        getname:function(){
+
+            const funone = function(){
+
+                console.log(name); //empty
+                console.log(this); //indow {window: Window, self: Window, document: document, name: '', location: Location, …}
+                console.log(this.name); //empty
+            }
+
+
+            funone();
+        },
+
+        getcity:function(){
+
+            const funtwo = ()=>{
+                console.log(this); //{name: 'Hla YaMin Oo', age: 20, city: 'Chaungzone', getname: ƒ, getcity: ƒ}
+                console.log(this.city); //chaungzone
+            }
+
+            funtwo();
+
+        },
+
+        getage:()=>{
+            const funthree = function(){
+                console.log(this); //Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+            }
+
+            funthree();
+        }
+
+    }
+
+    // console.log(obj3.getname)
+    obj3.getname();
+    obj3.getcity();
+    obj3.getage();
+
+    </script>
+    
+</body>
+</html>
